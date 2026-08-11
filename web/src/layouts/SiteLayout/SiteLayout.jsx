@@ -25,7 +25,7 @@ const SiteNav = () => {
             className="h-14 w-auto opacity-95 transition-opacity duration-300 group-hover:opacity-70 sm:h-16 md:h-[4.5rem]"
           />
           <BrandFlourish className="mt-2 h-3 w-28 opacity-90 transition-opacity group-hover:opacity-100 sm:w-32" />
-          <span className="mt-1.5 font-display text-[0.7rem] tracking-brand text-kotrina-ink/70 sm:text-xs">
+          <span className="mt-1.5 font-display text-xs tracking-brand text-kotrina-ink/80 sm:text-sm">
             Illustrator · Carlow
           </span>
         </Link>
