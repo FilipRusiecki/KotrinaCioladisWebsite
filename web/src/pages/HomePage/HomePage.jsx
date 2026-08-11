@@ -78,8 +78,8 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section id="portfolio" className="pt-14 sm:pt-20">
-        <FadeIn className="mx-auto mb-10 max-w-xl px-5 sm:px-8">
+      <section id="portfolio" className="pt-10 sm:pt-14">
+        <FadeIn className="mx-auto mb-6 max-w-xl px-5 sm:mb-8 sm:px-8">
           <ScrollPanel>
             <div className="text-center">
               <p className="font-display text-base tracking-brand text-kotrina-ink sm:text-lg">
@@ -88,8 +88,8 @@ const HomePage = () => {
               <h1 className="mt-2 font-display text-3xl tracking-wide text-kotrina-ink sm:text-4xl md:text-5xl">
                 Portfolio
               </h1>
-              <div className="ornament-rule mt-5" />
-              <p className="mt-5 text-base text-kotrina-ink/75 sm:text-lg">
+              <div className="ornament-rule mt-4" />
+              <p className="mt-4 text-base text-kotrina-ink/75 sm:text-lg">
                 Hover for titles — click to open the gallery.
               </p>
             </div>

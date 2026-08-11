@@ -4,10 +4,23 @@ import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 
 import { portfolioWorks } from 'src/data/siteContent'
 
-const spanClass = {
-  wide: 'md:col-span-2',
-  tall: 'md:row-span-2',
-  square: '',
+/** Slight tilts — keep scatter gentle */
+const scatter = [
+  { rotate: -1.8 },
+  { rotate: 1.4 },
+  { rotate: -1.0 },
+  { rotate: 1.9 },
+  { rotate: -1.5 },
+  { rotate: 1.1 },
+  { rotate: -2.0 },
+  { rotate: 1.6 },
+  { rotate: -0.8 },
+]
+
+const aspectClass = {
+  wide: 'aspect-[16/10]',
+  tall: 'aspect-[3/4]',
+  square: 'aspect-square',
 }
 
 const PortfolioLightbox = ({ works, index, onClose, onPrev, onNext }) => {
@@ -65,12 +78,14 @@ const PortfolioLightbox = ({ works, index, onClose, onPrev, onNext }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35 }}
       >
-        <div className="overflow-hidden rounded-2xl border border-kotrina-soft/25 bg-kotrina-soft/10 p-2 shadow-[0_24px_70px_rgba(0,0,0,0.4)]">
-          <img
-            src={work.src}
-            alt={work.alt}
-            className="max-h-[70vh] w-auto max-w-full rounded-xl object-contain"
-          />
+        <div className="hand-frame max-w-full bg-kotrina-soft/95 p-2 sm:p-2.5">
+          <div className="hand-frame-media">
+            <img
+              src={work.src}
+              alt={work.alt}
+              className="max-h-[70vh] w-auto max-w-full object-contain"
+            />
+          </div>
         </div>
         <div className="mt-5 text-center text-kotrina-white">
           <p className="font-display text-2xl tracking-wide sm:text-3xl">{work.title}</p>
@@ -118,40 +133,65 @@ const PortfolioGrid = () => {
 
   return (
     <>
-      <div className="mx-auto grid max-w-site grid-cols-1 gap-5 px-5 pb-20 sm:grid-cols-2 sm:gap-6 sm:px-8 md:grid-cols-3 md:auto-rows-[minmax(14rem,auto)]">
-        {portfolioWorks.map((work, index) => (
-          <motion.button
-            key={work.id}
-            type="button"
-            className={`group relative overflow-hidden rounded-2xl border border-kotrina-mist bg-kotrina-soft p-2 text-left shadow-[0_8px_24px_rgba(47,42,39,0.06)] transition duration-500 hover:-translate-y-1 hover:border-kotrina-coral/50 hover:shadow-[0_18px_40px_rgba(47,42,39,0.12)] ${
-              spanClass[work.span] || ''
-            }`}
-            onClick={() => setActive(index)}
-            initial={reduce ? false : { opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-30px' }}
-            transition={{
-              duration: 0.55,
-              delay: Math.min(index * 0.05, 0.35),
-              ease: [0.22, 1, 0.36, 1],
-            }}
-          >
-            <div className="relative h-full min-h-[15rem] overflow-hidden rounded-xl md:min-h-[17rem]">
-              <img
-                src={work.src}
-                alt={work.alt}
-                className="h-full min-h-[15rem] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05] md:min-h-[17rem]"
-                loading={index < 3 ? 'eager' : 'lazy'}
-              />
-              <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-kotrina-charcoal/85 via-kotrina-charcoal/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100">
-                <div className="translate-y-2 p-5 text-kotrina-white transition-transform duration-500 group-hover:translate-y-0 sm:p-6">
-                  <p className="font-display text-xl tracking-wide sm:text-2xl">{work.title}</p>
-                  <p className="mt-1 text-base text-kotrina-mist">{work.credit}</p>
+      {/* Masonry columns fill the full width like a packed sketchbook wall */}
+      <div className="mx-auto w-full max-w-[92rem] columns-1 gap-5 px-3 pb-16 sm:columns-2 sm:gap-6 sm:px-5 md:columns-3 md:gap-7 lg:px-8 xl:px-10">
+        {portfolioWorks.map((work, index) => {
+          const tilt = scatter[index % scatter.length]
+          return (
+            <motion.div
+              key={work.id}
+              className="mb-5 break-inside-avoid sm:mb-6"
+              initial={reduce ? false : { opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-20px' }}
+              transition={{
+                duration: 0.5,
+                delay: Math.min(index * 0.04, 0.3),
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+              <button
+                type="button"
+                className="hand-frame group w-full text-left outline-none [transition:transform_0.45s_cubic-bezier(0.22,1,0.36,1)] focus-visible:ring-2 focus-visible:ring-kotrina-coral/60"
+                style={
+                  reduce
+                    ? undefined
+                    : {
+                        transform: `rotate(${tilt.rotate}deg)`,
+                      }
+                }
+                onMouseEnter={(e) => {
+                  if (reduce) return
+                  e.currentTarget.style.transform = `rotate(${tilt.rotate * 0.3}deg) translateY(-4px)`
+                }}
+                onMouseLeave={(e) => {
+                  if (reduce) return
+                  e.currentTarget.style.transform = `rotate(${tilt.rotate}deg)`
+                }}
+                onClick={() => setActive(index)}
+              >
+                <div
+                  className={`hand-frame-media relative w-full overflow-hidden ${
+                    aspectClass[work.span] || aspectClass.square
+                  }`}
+                >
+                  <img
+                    src={work.src}
+                    alt={work.alt}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                    loading={index < 4 ? 'eager' : 'lazy'}
+                  />
+                  <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-kotrina-charcoal/85 via-kotrina-charcoal/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus-visible:opacity-100">
+                    <div className="translate-y-2 p-4 text-kotrina-white transition-transform duration-500 group-hover:translate-y-0 sm:p-5">
+                      <p className="font-display text-lg tracking-wide sm:text-xl">{work.title}</p>
+                      <p className="mt-1 text-sm text-kotrina-mist sm:text-base">{work.credit}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </motion.button>
-        ))}
+              </button>
+            </motion.div>
+          )
+        })}
       </div>
 
       <AnimatePresence>
