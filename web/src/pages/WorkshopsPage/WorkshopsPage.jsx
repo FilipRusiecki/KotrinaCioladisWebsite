@@ -4,6 +4,7 @@ import { Metadata } from '@redwoodjs/web'
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 
 import FadeIn from 'src/components/FadeIn/FadeIn'
+import { MamaZineLogos } from 'src/components/Brand/Brand'
 import ScrollPanel from 'src/components/ScrollPanel/ScrollPanel'
 import {
   social,
@@ -31,12 +32,8 @@ const WorkshopsPage = () => {
       />
 
       <div className="mx-auto max-w-site px-5 pb-20 pt-4 sm:px-8 sm:pt-6">
-        <FadeIn className="mx-auto max-w-2xl text-center">
-          <img
-            src="/images/logo/mamazine.png"
-            alt="MAMAzine"
-            className="mx-auto h-auto w-[min(100%,14rem)] object-contain sm:w-[min(100%,17rem)] md:w-[min(100%,20rem)]"
-          />
+        <FadeIn className="mx-auto max-w-3xl">
+          <MamaZineLogos size="lg" />
         </FadeIn>
 
         <FadeIn className="mx-auto mt-8 max-w-2xl" delay={0.05}>

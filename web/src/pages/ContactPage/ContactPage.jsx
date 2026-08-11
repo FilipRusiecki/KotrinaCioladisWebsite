@@ -1,6 +1,7 @@
 import { Metadata } from '@redwoodjs/web'
 
 import FadeIn from 'src/components/FadeIn/FadeIn'
+import { MamaZineLogos } from 'src/components/Brand/Brand'
 import ScrollPanel from 'src/components/ScrollPanel/ScrollPanel'
 import { social } from 'src/data/siteContent'
 
@@ -42,11 +43,7 @@ const ContactPage = () => {
 
         <FadeIn className="mx-auto mt-8 max-w-2xl" delay={0.1}>
           <div className="rounded-2xl border border-kotrina-mist bg-kotrina-soft/80 px-6 py-8 text-center shadow-[0_10px_28px_rgba(47,42,39,0.05)] sm:px-8">
-            <img
-              src="/images/logo/mamazine.png"
-              alt="MAMAzine"
-              className="mx-auto h-auto w-24 object-contain sm:w-28"
-            />
+            <MamaZineLogos size="sm" />
             <h2 className="mt-5 font-display text-xl tracking-wide text-kotrina-ink sm:text-2xl">
               Workshop bookings
             </h2>

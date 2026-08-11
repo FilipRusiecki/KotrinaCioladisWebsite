@@ -62,8 +62,11 @@ Tailwind prefix: `kotrina-*` (e.g. `bg-kotrina-linen`, `text-kotrina-ink`).
 
 - `/` — Portfolio (home)
 - `/workshops` — MAMAzine workshops
+- `/art-club` — Art Club monthly meetup
 - `/about` — About
 - `/contact` — Contact
+
+Art Club assets: `web/public/images/art-club/` (WhatsApp QR + meetup poster).
 
 ## Contacts (live copy)
 

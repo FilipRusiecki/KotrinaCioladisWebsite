@@ -3,6 +3,7 @@ import { Metadata } from '@redwoodjs/web'
 import { motion, useReducedMotion } from 'framer-motion'
 
 import FadeIn from 'src/components/FadeIn/FadeIn'
+import { MamaZineLogos } from 'src/components/Brand/Brand'
 import PortfolioGrid from 'src/components/PortfolioGrid/PortfolioGrid'
 import ScrollPanel from 'src/components/ScrollPanel/ScrollPanel'
 
@@ -101,12 +102,7 @@ const HomePage = () => {
         <FadeIn className="mx-auto max-w-xl">
           <ScrollPanel>
             <div className="flex flex-col items-center text-center">
-              <img
-                src="/images/logo/mamazine.png"
-                alt=""
-                className="h-auto w-28 opacity-95 sm:w-32"
-                aria-hidden
-              />
+              <MamaZineLogos size="md" />
               <h2 className="mt-5 font-display text-2xl tracking-wide text-kotrina-ink sm:text-3xl">
                 MAMAzine workshops
               </h2>

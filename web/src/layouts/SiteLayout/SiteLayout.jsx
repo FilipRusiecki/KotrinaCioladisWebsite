@@ -36,6 +36,7 @@ const SiteNav = () => {
         >
           <NavLink label="Portfolio" to={routes.home()} />
           <NavLink label="Workshops" to={routes.workshops()} />
+          <NavLink label="Art Club" to={routes.artClub()} />
           <NavLink label="About" to={routes.about()} />
           <NavLink label="Contact" to={routes.contact()} />
         </nav>
