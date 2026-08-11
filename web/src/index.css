@@ -11,3 +11,46 @@
 /**
  * END --- SETUP TAILWINDCSS EDIT
  */
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-kotrina-linen font-serif text-base text-kotrina-ink antialiased sm:text-lg;
+    background-image:
+      radial-gradient(ellipse 90% 55% at 50% -15%, rgba(214, 200, 180, 0.45), transparent 58%),
+      radial-gradient(ellipse 50% 40% at 0% 80%, rgba(217, 212, 206, 0.55), transparent 50%),
+      radial-gradient(ellipse 45% 35% at 100% 100%, rgba(232, 155, 148, 0.12), transparent 45%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-kotrina-coral/50 text-kotrina-ink;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply font-display text-base tracking-[0.1em] text-kotrina-ink/80 hover:text-kotrina-rust sm:text-lg;
+  }
+
+  .nav-link-active {
+    @apply text-kotrina-ink underline decoration-kotrina-coral decoration-2 underline-offset-8;
+  }
+
+  .ornament-rule {
+    @apply mx-auto h-px w-16 bg-gradient-to-r from-transparent via-kotrina-coral/70 to-transparent;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

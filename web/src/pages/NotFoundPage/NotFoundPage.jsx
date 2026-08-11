@@ -1,45 +1,14 @@
-export default () => (
-  <main>
-    <style
-      dangerouslySetInnerHTML={{
-        __html: `
-              html, body {
-                margin: 0;
-              }
-              html * {
-                box-sizing: border-box;
-              }
-              main {
-                display: flex;
-                align-items: center;
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-                text-align: center;
-                background-color: #E2E8F0;
-                height: 100vh;
-              }
-              section {
-                background-color: white;
-                border-radius: 0.25rem;
-                width: 32rem;
-                padding: 1rem;
-                margin: 0 auto;
-                box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-              }
-              h1 {
-                font-size: 2rem;
-                margin: 0;
-                font-weight: 500;
-                line-height: 1;
-                color: #2D3748;
-              }
-            `,
-      }}
-    />
-
-    <section>
-      <h1>
-        <span>404 Page Not Found</span>
-      </h1>
-    </section>
+export const NotFoundPage = () => (
+  <main className="flex min-h-screen flex-col items-center justify-center bg-kotrina-linen px-5 text-center">
+    <h1 className="font-display text-3xl tracking-wide text-kotrina-ink">Page not found</h1>
+    <p className="mt-3 text-kotrina-mute">That page doesn&apos;t exist.</p>
+    <a
+      href="/"
+      className="mt-8 font-display text-sm tracking-wide text-kotrina-rust underline decoration-kotrina-coral underline-offset-8 hover:text-kotrina-blush"
+    >
+      Back home
+    </a>
   </main>
 )
+
+export default NotFoundPage
