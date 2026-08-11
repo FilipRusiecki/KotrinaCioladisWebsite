@@ -140,7 +140,7 @@ const ArtClubPage = () => {
                 <p className="text-balance text-base leading-relaxed text-kotrina-mute sm:text-lg">
                   {artClub.description}
                 </p>
-                <p className="mt-4 font-display text-sm tracking-wide text-kotrina-ink sm:text-base">
+                <p className="mt-5 rounded-md border border-kotrina-earth/35 bg-kotrina-parchment/40 px-4 py-3 text-center font-display text-sm tracking-wide text-kotrina-ink sm:text-base">
                   {artClub.meetingsNote}
                 </p>
               </ScrollPanel>
