@@ -147,7 +147,7 @@ const ArtClubPage = () => {
             </FadeIn>
 
             <FadeIn delay={0.06}>
-              <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex flex-col items-center gap-4 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
                 <div>
                   <h2 className="font-display text-xl tracking-wide text-kotrina-ink sm:text-2xl">
                     Join WhatsApp group
