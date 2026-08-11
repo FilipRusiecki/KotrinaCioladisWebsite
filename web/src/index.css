@@ -37,7 +37,7 @@
 
 @layer components {
   .nav-link {
-    @apply font-display text-base tracking-[0.1em] text-kotrina-ink/80 hover:text-kotrina-rust sm:text-lg;
+    @apply font-display text-base font-medium tracking-[0.04em] text-kotrina-ink/85 hover:text-kotrina-rust sm:text-lg;
   }
 
   .nav-link-active {
@@ -46,6 +46,10 @@
 
   .ornament-rule {
     @apply mx-auto h-px w-16 bg-gradient-to-r from-transparent via-kotrina-coral/70 to-transparent;
+  }
+
+  .brand-chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-kotrina-mist bg-kotrina-soft/90 px-3 py-1 font-display text-xs tracking-brand text-kotrina-ink/80;
   }
 }
 

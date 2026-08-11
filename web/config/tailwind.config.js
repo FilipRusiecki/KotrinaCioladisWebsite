@@ -22,14 +22,14 @@ module.exports = {
         },
       },
       fontFamily: {
-        display: ['"Bodoni Moda"', 'Georgia', 'serif'],
-        serif: ['"Source Serif 4"', 'Georgia', 'serif'],
+        display: ['"Shantell Sans"', 'Segoe Print', 'cursive'],
+        serif: ['Literata', 'Georgia', 'serif'],
       },
       maxWidth: {
         site: '72rem',
       },
       letterSpacing: {
-        brand: '0.18em',
+        brand: '0.08em',
       },
     },
   },
