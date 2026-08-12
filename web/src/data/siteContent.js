@@ -87,6 +87,7 @@ export const upcomingWorkshops = [
     date: '12.06.26',
     time: '11 am',
     location: 'National College of Art & Design',
+    past: true,
   },
 ]
 
@@ -94,7 +95,7 @@ export const social = {
   instagram: 'https://www.instagram.com/kotrina.art/',
   tiktok: 'https://www.tiktok.com/@kotrina.art?lang=en',
   email: 'kotrina.art@gmail.com',
-  workshopEmail: 'kotrina.c@gmail.com',
+  workshopEmail: 'kotrina.art@gmail.com',
 }
 
 export const artClub = {

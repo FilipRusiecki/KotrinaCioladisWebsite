@@ -89,9 +89,6 @@ const HomePage = () => {
                 Portfolio
               </h1>
               <div className="ornament-rule mt-4" />
-              <p className="mt-4 text-base text-kotrina-ink/75 sm:text-lg">
-                Hover for titles — click to open the gallery.
-              </p>
             </div>
           </ScrollPanel>
         </FadeIn>

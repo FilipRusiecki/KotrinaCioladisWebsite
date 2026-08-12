@@ -194,8 +194,8 @@ const ArtClubPage = () => {
             </FadeIn>
 
             <FadeIn delay={0.08}>
-              <h2 className="font-display text-2xl tracking-wide text-kotrina-ink sm:text-3xl">
-                Upcoming / Next Meet Up
+              <h2 className="text-center font-display text-2xl tracking-wide text-kotrina-ink sm:text-3xl">
+                Next Meet Up
               </h2>
               <motion.button
                 type="button"

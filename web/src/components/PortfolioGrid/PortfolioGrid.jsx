@@ -87,10 +87,14 @@ const PortfolioLightbox = ({ works, index, onClose, onPrev, onNext }) => {
             />
           </div>
         </div>
-        <div className="mt-5 text-center text-kotrina-white">
-          <p className="font-display text-2xl tracking-wide sm:text-3xl">{work.title}</p>
-          <p className="mt-2 text-base text-kotrina-mist sm:text-lg">{work.credit}</p>
-          <p className="mt-3 font-display text-sm tracking-brand text-kotrina-mist/80">
+        <div className="mt-5 text-center">
+          <p className="font-display text-2xl tracking-wide text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_0_12px_rgba(0,0,0,0.85),0_0_2px_rgba(0,0,0,1)] sm:text-3xl">
+            {work.title}
+          </p>
+          <p className="mt-2 text-base text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_0_10px_rgba(0,0,0,0.8),0_0_2px_rgba(0,0,0,1)] sm:text-lg">
+            {work.credit}
+          </p>
+          <p className="mt-3 font-display text-sm tracking-brand text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.95),0_0_10px_rgba(0,0,0,0.8),0_0_2px_rgba(0,0,0,1)] sm:text-base">
             {index + 1} / {works.length}
           </p>
         </div>

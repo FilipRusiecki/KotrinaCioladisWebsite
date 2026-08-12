@@ -71,7 +71,7 @@ Art Club assets: `web/public/images/art-club/` (WhatsApp QR + meetup poster).
 ## Contacts (live copy)
 
 - General: `kotrina.art@gmail.com`
-- Workshops: `kotrina.c@gmail.com`
+- Workshops: `kotrina.art@gmail.com`
 - Instagram: [kotrina.art](https://www.instagram.com/kotrina.art/)
 - TikTok: [@kotrina.art](https://www.tiktok.com/@kotrina.art)
 

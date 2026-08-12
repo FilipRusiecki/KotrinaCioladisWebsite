@@ -45,8 +45,11 @@ const WorkshopsPage = () => {
             <ScrollPanel>
               <div className="text-center lg:text-left">
                 <h1 className="font-display text-3xl tracking-wide text-kotrina-ink sm:text-4xl">
-                  MAMAzine workshop
+                  MAMAzine:
                 </h1>
+                <p className="mt-2 font-display text-2xl tracking-wide text-kotrina-ink sm:text-3xl">
+                  My first year too
+                </p>
                 <p className="mt-4 text-balance text-base leading-relaxed text-kotrina-mute sm:text-lg">
                   A zine workshop for postpartum mothers. Reflect on your first year of motherhood —
                   documenting your firsts within the zine format. Connect, create, and share in a
@@ -151,10 +154,26 @@ const WorkshopsPage = () => {
                 </thead>
                 <tbody>
                   {upcomingWorkshops.map((row) => (
-                    <tr key={`${row.date}-${row.location}`} className="text-kotrina-ink">
-                      <td className="py-3 pr-4">{row.date}</td>
-                      <td className="py-3 pr-4">{row.time}</td>
-                      <td className="py-3">{row.location}</td>
+                    <tr
+                      key={`${row.date}-${row.location}`}
+                      className={
+                        row.past
+                          ? 'bg-kotrina-mist/25 text-kotrina-mute'
+                          : 'text-kotrina-ink'
+                      }
+                    >
+                      <td className="py-3 pr-4">
+                        <span className="inline-flex flex-wrap items-center gap-2">
+                          <span className={row.past ? 'opacity-70' : ''}>{row.date}</span>
+                          {row.past && (
+                            <span className="rounded-sm bg-kotrina-rust px-2 py-0.5 font-display text-xs tracking-brand text-kotrina-soft sm:text-sm">
+                              Past event
+                            </span>
+                          )}
+                        </span>
+                      </td>
+                      <td className={`py-3 pr-4 ${row.past ? 'opacity-70' : ''}`}>{row.time}</td>
+                      <td className={`py-3 ${row.past ? 'opacity-70' : ''}`}>{row.location}</td>
                     </tr>
                   ))}
                 </tbody>
