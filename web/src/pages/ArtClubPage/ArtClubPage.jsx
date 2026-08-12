@@ -121,9 +121,10 @@ const ArtClubPage = () => {
                   </span>
                 </span>
               </a>
-              <p className="mt-4 text-sm text-kotrina-mute sm:text-base">
+              <p className="mt-4 inline-block rounded-md border border-kotrina-earth/35 bg-kotrina-parchment/40 px-4 py-2 font-display text-sm tracking-wide text-kotrina-ink sm:text-base">
                 {upcoming.when}
-                <br />
+              </p>
+              <p className="mt-3 text-sm text-kotrina-mute sm:text-base">
                 {upcoming.where}
                 <br />
                 <span className="italic">Weather dependent</span>

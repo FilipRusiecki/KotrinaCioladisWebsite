@@ -1,4 +1,6 @@
-import { Link, routes, useMatch } from '@redwoodjs/router'
+import { useEffect, useRef, useState } from 'react'
+
+import { Link, routes, useLocation, useMatch } from '@redwoodjs/router'
 
 import { BrandFlourish } from 'src/components/Brand/Brand'
 import SideOrnaments from 'src/components/SideOrnaments/SideOrnaments'
@@ -10,6 +12,80 @@ const NavLink = ({ label, to }) => {
     <Link to={to} className={`nav-link ${match ? 'nav-link-active' : ''}`}>
       {label}
     </Link>
+  )
+}
+
+const WorkshopsMenu = () => {
+  const [open, setOpen] = useState(false)
+  const wrapRef = useRef(null)
+  const { pathname } = useLocation()
+  const workshopsActive = pathname === '/workshops' || pathname === '/art-club'
+
+  useEffect(() => {
+    if (!open) return undefined
+    const onPointer = (e) => {
+      if (wrapRef.current && !wrapRef.current.contains(e.target)) setOpen(false)
+    }
+    const onKey = (e) => {
+      if (e.key === 'Escape') setOpen(false)
+    }
+    document.addEventListener('pointerdown', onPointer)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('pointerdown', onPointer)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [open])
+
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
+
+  return (
+    <div
+      ref={wrapRef}
+      className="relative"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <button
+        type="button"
+        className={`nav-link inline-flex items-center gap-1 ${workshopsActive ? 'nav-link-active' : ''}`}
+        aria-expanded={open}
+        aria-haspopup="true"
+        onClick={() => setOpen((v) => !v)}
+      >
+        Workshops
+        <span className="text-[0.7em] leading-none opacity-70" aria-hidden>
+          ▾
+        </span>
+      </button>
+
+      <div
+        className={`absolute left-1/2 top-full z-50 w-44 -translate-x-1/2 pt-2 transition ${
+          open ? 'pointer-events-auto visible opacity-100' : 'pointer-events-none invisible opacity-0'
+        }`}
+      >
+        <div className="rounded-md border border-kotrina-mist/80 bg-kotrina-soft/95 py-1.5 shadow-[0_12px_28px_rgba(47,42,39,0.12)] backdrop-blur-md">
+          <Link
+            to={routes.workshops()}
+            className={`block px-4 py-2.5 font-display text-base tracking-wide transition hover:bg-kotrina-parchment/50 hover:text-kotrina-rust ${
+              pathname === '/workshops' ? 'text-kotrina-rust' : 'text-kotrina-ink/85'
+            }`}
+          >
+            MAMAzine
+          </Link>
+          <Link
+            to={routes.artClub()}
+            className={`block px-4 py-2.5 font-display text-base tracking-wide transition hover:bg-kotrina-parchment/50 hover:text-kotrina-rust ${
+              pathname === '/art-club' ? 'text-kotrina-rust' : 'text-kotrina-ink/85'
+            }`}
+          >
+            Art Club
+          </Link>
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -35,8 +111,7 @@ const SiteNav = () => {
           aria-label="Primary"
         >
           <NavLink label="Portfolio" to={routes.home()} />
-          <NavLink label="Workshops" to={routes.workshops()} />
-          <NavLink label="Art Club" to={routes.artClub()} />
+          <WorkshopsMenu />
           <NavLink label="About" to={routes.about()} />
           <NavLink label="Contact" to={routes.contact()} />
         </nav>

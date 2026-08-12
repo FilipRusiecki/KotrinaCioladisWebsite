@@ -1,7 +1,7 @@
 import { Metadata } from '@redwoodjs/web'
 
 import FadeIn from 'src/components/FadeIn/FadeIn'
-import { MamaZineLogos } from 'src/components/Brand/Brand'
+import { BrandFlourish, MamaZineLogos } from 'src/components/Brand/Brand'
 import ScrollPanel from 'src/components/ScrollPanel/ScrollPanel'
 import { social } from 'src/data/siteContent'
 
@@ -82,6 +82,10 @@ const ContactPage = () => {
               TikTok
             </a>
           </div>
+        </FadeIn>
+
+        <FadeIn className="mt-12 flex justify-center pb-2 sm:mt-14" delay={0.18}>
+          <BrandFlourish className="h-3 w-28 opacity-90 sm:w-36" />
         </FadeIn>
       </div>
     </>
