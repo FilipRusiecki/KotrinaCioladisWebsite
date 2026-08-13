@@ -27,7 +27,7 @@ const AboutPage = () => {
           <FadeIn className="flex flex-col justify-center lg:col-span-7" delay={0.1}>
             <ScrollPanel>
               <h1 className="font-display text-4xl tracking-wide text-kotrina-ink sm:text-5xl">
-                About
+                Hello
               </h1>
               <div className="mt-6 space-y-5 text-lg leading-relaxed text-kotrina-mute sm:text-xl">
                 <p>

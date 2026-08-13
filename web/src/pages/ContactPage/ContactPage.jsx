@@ -15,12 +15,10 @@ const ContactPage = () => {
 
       <div className="mx-auto max-w-site px-5 pb-24 pt-8 sm:px-8 sm:pt-12">
         <FadeIn className="mx-auto max-w-2xl text-center">
+          <h1 className="sr-only">Contact</h1>
           <p className="font-display text-base tracking-brand text-kotrina-ink sm:text-lg">
             Get in touch
           </p>
-          <h1 className="mt-2 font-display text-4xl tracking-wide text-kotrina-ink sm:text-5xl">
-            Contact
-          </h1>
           <div className="ornament-rule mt-5" />
         </FadeIn>
 
